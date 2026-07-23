@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>Cafe101</AssemblyName>
+    <RootNamespace>Cafe101</RootNamespace>
+    <Nullable>disable</Nullable>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config.example">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Resources\aquelle.jpg" />
+    <Content Remove="Resources\avocadotoast.jpg" />
+    <Content Remove="Resources\bananamuffin.jpg" />
+    <Content Remove="Resources\brownie.jpg" />
+    <Content Remove="Resources\caesarsalad.jpg" />
+    <Content Remove="Resources\cappuccino.jpg" />
+    <Content Remove="Resources\cheesecake.jpg" />
+    <Content Remove="Resources\chipsandwitch.jpeg" />
+    <Content Remove="Resources\coke.jpg" />
+    <Content Remove="Resources\coldbrew.jpg" />
+    <Content Remove="Resources\croissant.jpg" />
+    <Content Remove="Resources\eggsbenedict.jpg" />
+    <Content Remove="Resources\flatwhite.jpg" />
+    <Content Remove="Resources\flyingfish.jpeg" />
+    <Content Remove="Resources\fullbreakfast.jpg" />
+    <Content Remove="Resources\fullyloadedfries.jpeg" />
+    <Content Remove="Resources\hotchocolate.jpg" />
+    <Content Remove="Resources\lambslamwich.jpeg" />
+    <Content Remove="Resources\lemontart.jpg" />
+    <Content Remove="Resources\liquifruit.jpg" />
+    <Content Remove="Resources\monster.jpg" />
+    <Content Remove="Resources\orangejuice.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\aquelle.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\avocadotoast.jpg" />
+    <EmbeddedResource Include="Resources\bananamuffin.jpg" />
+    <EmbeddedResource

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
+  </startup>
+  <connectionStrings>
+    <add name="Cafe101Db" connectionString="Data Source=YOUR_SERVER;Initial Catalog=YOUR_DB;User ID=YOUR_USER;Password=YOUR_PASSWORD;TrustServerCertificate=True;Encrypt=False;Connect Timeout=15;" providerName="Microsoft.Data.SqlClient" />
+  </connectionStrings>
+</configuration>
