@@ -153,7 +153,7 @@ Cafe101_System/
 | `Orders` / `OrderItems` | Order headers and line items, with computed subtotal columns |
 | `PurchaseOrders` | Procurement requests linked to suppliers, feeding stock replenishment |
 
-Full DDL, constraints, and seed data are in `Cafe101_Database_Setup.sql`.
+Full DDL, constraints, and seed data are in `Cafe101_Database.sql`.
 
 ---
 
