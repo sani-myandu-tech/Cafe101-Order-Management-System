@@ -25,29 +25,29 @@ The system's core design goal was **separation of concerns between UI, business 
 The application is structured in three layers:
 
 ```
-┌─────────────────────────────────────────────────┐
-│                PRESENTATION LAYER                │
-│   Cashier · HeadChef · Manager · OwnerDashboard   │
-│         Form1 (Login) · ResetPassword             │
-│              WinForms + GDI+ (SplashScreen)       │
+┌────────────────────────────────────────────────┐
+│                PRESENTATION LAYER              │
+│  Cashier · HeadChef · Manager · OwnerDashboard │
+│         Form1 (Login) · ResetPassword          │
+│              WinForms + GDI+ (SplashScreen)    │
 └───────────────────────┬────────────────────────┘
-                         │
+                        │
 ┌───────────────────────▼────────────────────────┐
-│               DATA ACCESS LAYER                   │
-│                 DatabaseHelper.cs                 │
-│   Static gateway — all SQL lives here, exposed    │
-│   as typed, parameterized methods per domain:     │
-│   Auth · Staff · Customers · Menu · Orders ·      │
-│   Suppliers · Purchase Orders · Reports           │
+│               DATA ACCESS LAYER                │
+│                 DatabaseHelper.cs              │
+│   Static gateway — all SQL lives here, exposed │
+│   as typed, parameterized methods per domain:  │
+│   Auth · Staff · Customers · Menu · Orders ·   │
+│   Suppliers · Purchase Orders · Reports        │
 └───────────────────────┬────────────────────────┘
-                         │
+                        │
 ┌───────────────────────▼────────────────────────┐
-│                 PERSISTENCE LAYER                 │
-│                    SQL Server                     │
-│   Users · Customers · Categories · MenuItems ·    │
-│   Suppliers · Orders · OrderItems ·                │
-│   PurchaseOrders                                  │
-└─────────────────────────────────────────────────┘
+│                 PERSISTENCE LAYER              │
+│                    SQL Server                  │
+│   Users · Customers · Categories · MenuItems · │
+│   Suppliers · Orders · OrderItems ·            │
+│   PurchaseOrders                               │
+└────────────────────────────────────────────────┘
 ```
 
 **Why this shape:** WinForms code-behind classes (`Cashier.cs`, `Manager.cs`, etc.) never construct SQL directly — they call typed methods on `DatabaseHelper` (e.g. `GetMenuItems()`, `CreateOrder(...)`, `GetLowStockItems()`) and receive back `DataTable`s or primitives. This keeps every SQL statement centralized, parameterized, and auditable in one file, and means a form's responsibility is limited to presentation and user interaction — not query construction.
